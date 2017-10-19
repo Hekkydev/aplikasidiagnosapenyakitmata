@@ -16,7 +16,7 @@
         <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="{{ asset("/bower_components/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
-       
+
         <link href="{{ asset("/bower_components/admin-lte/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="{{ asset("favicon.png") }} " type="image/x-icon">
         <link rel="stylesheet" type="" href="{{ asset("/bower_components/datatables.net-bs/css/dataTables.bootstrap.css")}}">
@@ -193,11 +193,11 @@
                 </div>
 
                 <!-- search form (Optional) -->
-                <form action="#" method="get" class="sidebar-form">
+                <form action="{{ url('backend/penyakit/search')}}" method="get" class="sidebar-form">
                     <div class="input-group">
                         <input type="text" name="q" class="form-control" placeholder="Telusuri Penyakit..."/>
           <span class="input-group-btn">
-            <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
+            <button type='submit' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
           </span>
                     </div>
                 </form>
@@ -231,5 +231,3 @@
 
             <!-- Main content -->
             <section class="content">
-
-               

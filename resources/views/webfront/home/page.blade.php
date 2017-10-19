@@ -1,23 +1,23 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	
+
 <!-- Mirrored from sainathchillapuram.com/BS/mediplus/demos/hospital/html-fullwidth/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Oct 2017 17:57:21 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-	
+
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		
+
 		<title>{{ str_replace('_',' ',env('APP_NAME')) }}</title>
-		
+
 		<!-- Bootstrap -->
 		<link href="{{ asset("frontsite/css/bootstrap.min.css")}}" rel="stylesheet">
-		
-		
+
+
 		<!-- Template CSS Files  -->
 		<link href="{{ asset("frontsite/font-awesome/css/font-awesome.min.css")}}" rel="stylesheet">
 		<link href="{{ asset("frontsite/js/plugins/camera/css/camera.css")}}" rel="stylesheet">
@@ -25,7 +25,7 @@
 		<link href="{{ asset("frontsite/css/style.css")}}" rel="stylesheet">
 		<link href="{{ asset("frontsite/css/responsive.css")}}" rel="stylesheet">
 		<link rel="shortcut icon" href="{{ asset("favicon.png")}}">
-		
+
 	</head>
 	<body>
 	<!-- Header Starts -->
@@ -234,120 +234,7 @@
 		<!-- Welcome Section Ends -->
 		</div>
 	<!-- Main Container Ends -->
-	<!-- Meet Our Doctors Section Starts -->
-		<section class="featured-doctors">
-		<!-- Nested Container Starts -->
-			<div class="container">
-				<h2><span class="lite">Meet Our</span> Doctors</h2>
-				<p>
-					Making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident.
-				</p>
-				<div class="row">
-				<!-- Doctor Bio #1 Starts -->
-					<div class="col-md-3 col-sm-6 col-xs-12">
-						<div class="bio-box">
-							<div class="profile-img">
-								<img src="{{ asset('frontsite')}}/images/doctors/doctor-bio-img1.jpg" alt="Doctor" class="img-responsive img-center-sm img-center-xs">
-								<div class="overlay">
-									<ul class="list-unstyled list-inline sm-links">
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-skype"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="inner">
-								<h5>Dr. Tom Smith Bert</h5>
-								<p class="designation">Surgeon</p>
-								<p class="divider"><i class="fa fa-plus-square"></i></p>
-								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since type specimen book.
-								</p>
-							</div>							
-							<a href="doctor-profile.html" class="btn btn-transparent inverse text-uppercase">Book An Appointment</a>
-						</div>
-					</div>
-				<!-- Doctor Bio #1 Ends -->
-				<!-- Doctor Bio #2 Starts -->
-					<div class="col-md-3 col-sm-6 col-xs-12">
-						<div class="bio-box">
-							<div class="profile-img">
-								<img src="{{ asset('frontsite')}}/images/doctors/doctor-bio-img2.jpg" alt="Doctor" class="img-responsive img-center-sm img-center-xs">
-								<div class="overlay">
-									<ul class="list-unstyled list-inline sm-links">
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-skype"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="inner">
-								<h5>Dr. Tom Smith Bert</h5>
-								<p class="designation">Surgeon</p>
-								<p class="divider"><i class="fa fa-plus-square"></i></p>
-								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since type specimen book.
-								</p>
-							</div>							
-							<a href="doctor-profile.html" class="btn btn-transparent inverse text-uppercase">Book An Appointment</a>
-						</div>
-					</div>
-				<!-- Doctor Bio #2 Ends -->
-				<!-- Doctor Bio #3 Starts -->
-					<div class="col-md-3 col-sm-6 col-xs-12">
-						<div class="bio-box">
-							<div class="profile-img">
-								<img src="{{ asset('frontsite')}}/images/doctors/doctor-bio-img3.jpg" alt="Doctor" class="img-responsive img-center-sm img-center-xs">
-								<div class="overlay">
-									<ul class="list-unstyled list-inline sm-links">
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-skype"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="inner">
-								<h5>Dr. Tom Smith Bert</h5>
-								<p class="designation">Surgeon</p>
-								<p class="divider"><i class="fa fa-plus-square"></i></p>
-								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since type specimen book.
-								</p>
-							</div>							
-							<a href="doctor-profile.html" class="btn btn-transparent inverse text-uppercase">Book An Appointment</a>
-						</div>
-					</div>
-				<!-- Doctor Bio #3 Ends -->
-				<!-- Doctor Bio #4 Starts -->
-					<div class="col-md-3 col-sm-6 col-xs-12">
-						<div class="bio-box">
-							<div class="profile-img">
-								<img src="{{ asset('frontsite')}}/images/doctors/doctor-bio-img4.jpg" alt="Doctor" class="img-responsive img-center-sm img-center-xs">
-								<div class="overlay">
-									<ul class="list-unstyled list-inline sm-links">
-										<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-										<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-										<li><a href="#"><i class="fa fa-skype"></i></a></li>
-									</ul>
-								</div>
-							</div>
-							<div class="inner">
-								<h5>Dr. Tom Smith Bert</h5>
-								<p class="designation">Surgeon</p>
-								<p class="divider"><i class="fa fa-plus-square"></i></p>
-								<p>
-									Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since type specimen book.
-								</p>
-							</div>							
-							<a href="doctor-profile.html" class="btn btn-transparent inverse text-uppercase">Book An Appointment</a>
-						</div>
-					</div>
-				<!-- Doctor Bio #4 Ends -->
-				</div>
-			</div>
-		<!-- Nested Container Ends -->
-		</section>
-	<!-- Meet Our Doctors Section Ends -->
+	
 	<!-- Main Container Starts -->
 		<div class="container main-container">
 		<!-- Medical Services Section Starts -->
@@ -463,7 +350,7 @@
 														Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker....
 													</p>
 													<a href="#" class="btn btn-secondary">
-														<i class="fa fa-arrow-circle-right"></i> 
+														<i class="fa fa-arrow-circle-right"></i>
 														Read More
 													</a>
 												</div>
@@ -523,7 +410,7 @@
 														Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker....
 													</p>
 													<a href="#" class="btn btn-secondary">
-														<i class="fa fa-arrow-circle-right"></i> 
+														<i class="fa fa-arrow-circle-right"></i>
 														Read More
 													</a>
 												</div>
@@ -708,7 +595,7 @@
 									<h5 class="panel-title">
 										<i class="icon fa fa-ambulance"></i>
 										<a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
-											24x7 Ambulance 
+											24x7 Ambulance
 										</a>
 									</h5>
 								</div>
@@ -863,14 +750,14 @@
 	<!-- Footer Ends -->
 	<!-- Template JS Files -->
 	<script src="{{ asset('frontsite')}}/js/jquery-1.11.3.min.js"></script>
-	<script src="{{ asset('frontsite')}}/js/jquery-migrate-1.2.1.min.js"></script>	
+	<script src="{{ asset('frontsite')}}/js/jquery-migrate-1.2.1.min.js"></script>
 	<script src="{{ asset('frontsite')}}/js/bootstrap.min.js"></script>
 	<script src="{{ asset('frontsite')}}/js/plugins/camera/js/jquery.mobile.customized.min.js"></script>
 	<script src="{{ asset('frontsite')}}/js/plugins/camera/js/jquery.easing.1.3.js"></script>
-	<script src="{{ asset('frontsite')}}/js/plugins/camera/js/camera.min.js"></script>	
+	<script src="{{ asset('frontsite')}}/js/plugins/camera/js/camera.min.js"></script>
 	<script src="{{ asset('frontsite')}}/js/plugins/shuffle/jquery.shuffle.modernizr.min.js"></script>
 	<script src="{{ asset('frontsite')}}/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-	<script src="{{ asset('frontsite')}}/js/custom.js"></script>	
+	<script src="{{ asset('frontsite')}}/js/custom.js"></script>
 	</body>
 
 <!-- Mirrored from sainathchillapuram.com/BS/mediplus/demos/hospital/html-fullwidth/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 18 Oct 2017 17:57:21 GMT -->

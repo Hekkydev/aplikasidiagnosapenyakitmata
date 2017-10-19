@@ -52,20 +52,29 @@ Route::group(['prefix' => 'backend'], function () {
     Route::get('solusi/{id}/deleted', 'SolusiController@deleted');
     Route::post('solusi/addproses', 'SolusiController@addproses');
     Route::post('solusi/updateproses', 'SolusiController@updateproses');
-    
+
+
+    // ACCOUNT
+
+    Route::get('account', 'admin@listdata');
+    Route::get('account/add', 'admin@add');
+    Route::get('account/{id}/update', 'admin@update');
+    Route::get('account/{id}/delete', 'admin@delete');
+    Route::post('account/addproses','admin@addproses');
+    Route::post('account/updateproses','admin@updateproses');
+
 });
 
 
 
 
 
-Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', 'admin@listdata');
-    Route::get('add', 'admin@add');
-    Route::post('add','admin@entri');
+
+Route::group(['prefix' => 'membership'], function () {
+    Auth::routes();
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/diagnosa', 'HomeController@diagnosa')->name('diagnosa');
+    Route::get('/hasil-diagnosa', 'HomeController@diagnosa')->name('diagnosa');
+    Route::get('/profil', 'HomeController@profil')->name('profil');
 });
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -40,27 +40,27 @@ class PenyakitController extends Controller
             'menu'=>'Daftar Solusi',
             'url'=>'backend/solusi',
             'icon'=>'fa fa-stethoscope ',
-            ], 
-            
+            ],
+
             '5'=>[
                 'menu'=>'Basis Aturan',
                 'url'=>'backend/account',
                 'icon'=>'fa fa-clipboard ',
-                ], 
+                ],
 
             '6'=>[
                 'menu'=>'Lihat Usulan',
                 'url'=>'backend/account',
                 'icon'=>'fa fa-heartbeat  ',
-                ], 
-            
+                ],
+
             '7'=>[
                 'menu'=>'Manajemen Akun',
                 'url'=>'backend/account',
                 'icon'=>'fa fa-user-md ',
-                ], 
-            
-            
+                ],
+
+
         ];
     }
 
@@ -68,7 +68,6 @@ class PenyakitController extends Controller
     {
         $menus = $this->menus;
         $judul = "Database Penyakit";
-        $judul_desc = "database penyakit adalah kumpulan database penyakit";
         $penyakit =  Penyakitmodel::all();
         $no = 1;
         return view('master_penyakit.list',compact('menus','judul','judul_desc','penyakit','no'));
@@ -115,7 +114,7 @@ class PenyakitController extends Controller
         if ($validator->fails()) {
             Session::flash('message','Error insert data');
             return Redirect::to('backend/penyakit/add');
-                           
+
         } else {
             // store
             $nerd = new Penyakitmodel;

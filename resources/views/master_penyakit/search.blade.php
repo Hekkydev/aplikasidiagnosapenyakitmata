@@ -10,7 +10,7 @@
                         <div class="form-group">
                             <label for="search" class="control-label col-md-2">Cari Data Penyakit</label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" name="nama_penyakit">
+                                <input type="text" class="form-control" name="nama_penyakit" value="{{ isset($_GET['q']) ? $_GET['q'] : '' }}">
                             </div>
                             <div class="col-md-2">
                                 <button class="btn btn-primary" type="submit">Search</button>
