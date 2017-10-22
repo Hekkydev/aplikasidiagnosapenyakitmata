@@ -66,15 +66,11 @@ Route::group(['prefix' => 'backend'], function () {
 });
 
 
-
-
-
-
 Route::group(['prefix' => 'membership'], function () {
     Auth::routes();
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/diagnosa', 'HomeController@diagnosa')->name('diagnosa');
-    Route::get('/hasil-diagnosa', 'HomeController@diagnosa')->name('diagnosa');
+    Route::get('/hasil-diagnosa', 'HomeController@diagnosa')->name('hasil-diagnosa');
     Route::get('/profil', 'HomeController@profil')->name('profil');
 });
