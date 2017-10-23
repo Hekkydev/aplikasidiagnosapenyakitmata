@@ -14,6 +14,8 @@
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -77,6 +79,31 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    {{--  <script src="{{ asset('js/app.js') }}"></script>  --}}
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('bower_components/wizard/jquery.bootstrap.wizard.min.js') }}"></script>
+    <script>
+     $(document).ready(function () {
+          // Form Wizard
+          if ($.isFunction($.fn.bootstrapWizard))
+          {
+               $('#rootwizard').bootstrapWizard({
+                    tabClass: 'wizard-steps',
+                    onTabShow: function ($tab, $navigation, index)
+                    {
+                         $tab.prevAll().addClass('completed');
+                         $tab.nextAll().removeClass('completed');
+                         $tab.removeClass('completed');
+                    }
+
+               });
+
+               
+          }
+     });
+     </script>
+
 </body>
 </html>
