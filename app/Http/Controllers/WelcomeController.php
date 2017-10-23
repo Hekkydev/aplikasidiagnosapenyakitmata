@@ -1,75 +1,70 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Admin;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class WelcomeController extends Controller
 {
     public function __construct()
     {
-        $this->menus = [
-            '0'=>[
-                'menu'=>'Dashboard',
-                'url'=>'backend/dashboard',
-                'icon'=>'fa fa-dashboard',
-             ],
-             '1'=>[
-                'menu'=>'Telusuri Penyakit',
-                'url'=>'backend/penyakit/search',
-                'icon'=>'fa fa-search',
-             ],
-             '2'=>[
-                    'menu'=>'Daftar Penyakit',
-                    'url'=>'backend/penyakit',
-                    'icon'=>'fa fa-hospital-o',
-                 ],
-            '3'=>[
-                 'menu'=>'Daftar Gejala',
-                 'url'=>'backend/gejala',
-                 'icon'=>'fa fa-medkit',
-                 ],
-
-            '4'=>[
-            'menu'=>'Daftar Solusi',
-            'url'=>'backend/solusi',
-            'icon'=>'fa fa-stethoscope ',
-            ], 
-            
-            '5'=>[
-                'menu'=>'Basis Aturan',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-clipboard ',
-                ], 
-
-            '6'=>[
-                'menu'=>'Lihat Usulan',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-heartbeat  ',
-                ], 
-            
-            '7'=>[
-                'menu'=>'Manajemen Akun',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-user-md ',
-                ], 
-            
-            
-        ];
+       
     }
 
-    public function index()
-    {
-        $menus = $this->menus;
-        $judul = "Welcome";
-        $judul_desc = "Selamat datang di administrator sistem";
+   
+
+    function cekLogin(Request $req){
         
-        return view('dashboard.page',compact('menus','judul','judul_desc'));
-        //
-    }
-
-    function login()
-    {
-            return view('admin.login');
-    }
+           $rules =  [
+                
+               'username' => [
+                               'required',
+                               'min:3',
+                               'exists:administrator,username'
+        
+                           ],
+               'password' => [
+                               'required',
+                               'min:3',
+                           ],
+            
+                        ];
+               $validator = Validator::make($req->all(),$rules);
+        
+               if ($validator->fails()) {
+                    return redirect('administrator/login')
+                                ->withErrors($validator)
+                                ->withInput();
+                }
+        
+                $user= $req->username;
+                $pass = $req->password;
+        
+                  $check = Admin::where('username',$user)->where('password',$pass)->count();
+                
+                  if( !($check > 0) )  {
+                       return redirect('administrator/login')->with('status', 'salah');
+                  }
+        
+                  $take = Admin::where('username',$user)->where('password',$pass)->first();
+                  
+                         session(['username' => $take->username]);
+                         session(['kode_administrator' => $take->kode_administrator]);
+                         session(['nama_lengkap'=>$take->nama_lengkap]);
+                         session(['password' => true ]);
+                         return redirect('backend/dashboard');
+           }
+        
+           function logout(Request $req){
+                $req->session()->regenerate();
+                $req->session()->flush();
+                return redirect('administrator/login');
+        }
+        
 }

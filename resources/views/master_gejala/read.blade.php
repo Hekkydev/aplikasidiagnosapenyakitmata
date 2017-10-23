@@ -27,10 +27,16 @@
                                     <td>:</td>
                                     <td><input type="text" name="nama_gejala"  class="form-control" value="{{ $data->nama_gejala }}"></td>
                                 </tr>
-                              <tr>
-                                    <td> <label for="nama">Keterangan</label></td>
+                               <tr>
+                                    <td><label for="Present">Present</label></td>
                                     <td>:</td>
-                                    <td><textarea  name="keterangan"  class="form-control">{{ $data->keterangan }}</textarea>
+                                    <td><input type="text" name="present_positif" value="{{ $data->present_positif }}" placeholder="nilai positif"> <input type="text" value="{{ $data->present_negatif }}" name="present_negatif" placeholder="nilai negatif"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="Absen">Absen</label></td>
+                                    <td>:</td>
+                                    <td><input type="text" name="absen_positif" placeholder="nilai positif" value="{{ $data->absen_positif}}"> <input type="text" name="absen_negatif" placeholder=" nilai negatif" value="{{ $data->absen_negatif}}"></td>
                                 </tr>
                                 <tr>
                                         <td> </td>

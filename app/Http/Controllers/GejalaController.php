@@ -83,7 +83,10 @@ class GejalaController extends Controller
         $rules = [
             'kode_gejala'=>'required',
             'nama_gejala'=>'required',
-            'keterangan'=>'required',
+            'present_positif'=>'required',
+            'present_negatif'=>'required',
+            'absen_positif'=>'required',
+            'absen_negatif'=>'required'
         ];
         $validator = Validator::make($request->all(), $rules);
         if ($validator->fails()) {
@@ -94,7 +97,11 @@ class GejalaController extends Controller
             $s = new Gejala();
             $s->kode_gejala = $request->kode_gejala;
             $s->nama_gejala = $request->nama_gejala;
-            $s->keterangan = $request->keterangan;
+            $s->keterangan = '';
+            $s->present_positif = $request->present_positif;
+            $s->present_negatif = $request->present_negatif;
+            $s->absen_negatif = $request->absen_negatif;
+            $s->absen_positif = $request->absen_positif;
             $s->save();
 
             Session::flash('message','Success  insert data');
@@ -117,7 +124,10 @@ class GejalaController extends Controller
             'id'=>'required',
             'kode_gejala'=>'required',
             'nama_gejala'=>'required',
-            'keterangan'=>'required',
+            'present_positif'=>'required',
+            'present_negatif'=>'required',
+            'absen_positif'=>'required',
+            'absen_negatif'=>'required'
         ];
         $id = $e->id;
         $validator = Validator::make($e->all(), $rules);
@@ -127,9 +137,13 @@ class GejalaController extends Controller
         } else {
 
             $s =  Gejala::find($id);
-            $s->kode_gejala = $e->kode_gejala;
-            $s->nama_gejala = $e->nama_gejala;
-            $s->keterangan = $e->keterangan;
+            $s->kode_gejala = $request->kode_gejala;
+            $s->nama_gejala = $request->nama_gejala;
+            $s->keterangan = '';
+            $s->present_positif = $request->present_positif;
+            $s->present_negatif = $request->present_negatif;
+            $s->absen_negatif = $request->absen_negatif;
+            $s->absen_positif = $request->absen_positif;
             $s->save();
 
             Session::flash('message','Success  update data');

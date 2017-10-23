@@ -21,15 +21,21 @@
                                     <td>:</td>
                                     <td><input type="text" name="nama_gejala"  class="form-control"></td>
                                 </tr>
-                              <tr>
-                                    <td> <label for="nama">Keterangan</label></td>
+                                <tr>
+                                    <td><label for="Present">Present</label></td>
                                     <td>:</td>
-                                    <td><textarea  name="keterangan"  class="form-control"></textarea>
+                                    <td><input type="text" name="present_positif" placeholder="nilai positif"> <input type="text" name="present_negatif" placeholder="nilai negatif"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="Absen">Absen</label></td>
+                                    <td>:</td>
+                                    <td><input type="text" name="absen_positif" placeholder="nilai positif"> <input type="text" name="absen_negatif" placeholder=" nilai negatif"></td>
                                 </tr>
                                 <tr>
                                         <td> </td>
                                         <td></td>
-                                        <td><button type="submit" class="btn btn-primary">Update</button> <a href="{{ URL::to('backend/gejala')}}" class="btn btn-default">Kembali</a></td>
+                                        <td><button type="submit" class="btn btn-primary">Insert</button> <a href="{{ URL::to('backend/gejala')}}" class="btn btn-default">Kembali</a></td>
                                     </tr>
                                     
                            </table>

@@ -27,7 +27,19 @@
                       <a href="{{url('/membership')}}" class="btn btn-default btn-flat">Back</a>
                       </div>
                     </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="">Umur</label>
+                        <input type="text" name="" value="{{ $data->umur }} tahun" class="form-control" readonly>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Email</label>
+                       <textarea rows="" cols="" class="form-control" readonly>{{ $data->alamat }}</textarea>
+                      </div>
+                      
+                    </div>
                   </div>
+                  
                 </div>
             </div>
         </div>

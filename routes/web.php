@@ -14,17 +14,12 @@
 Route::get('/', 'Webfront@index');
 
 
-Route::group(['prefix' => 'api'], function () {
-    Route::get('{id}','CrudsController@finding');
-});
 
-Route::group(['prefix' => 'backend'], function () {
 
-    // Route::get('{id}/edit','CrudsController@find');
-    // Route::get('{id}/hapus','CrudsController@destroy');
-    // Route::post('{id}/update','CrudsController@update');
-    // WELCOME
-    Route::get('/', 'WelcomeController@login');
+
+Route::group(['prefix' => 'backend','middleware' => 'checklogin'], function () {
+
+
     // DASHBOARD
     Route::get('dashboard', 'DashboardController@index');
     // PENYAKIT
@@ -53,9 +48,7 @@ Route::group(['prefix' => 'backend'], function () {
     Route::post('solusi/addproses', 'SolusiController@addproses');
     Route::post('solusi/updateproses', 'SolusiController@updateproses');
 
-
     // ACCOUNT
-
     Route::get('account', 'admin@listdata');
     Route::get('account/add', 'admin@add');
     Route::get('account/{id}/update', 'admin@update');
@@ -63,6 +56,20 @@ Route::group(['prefix' => 'backend'], function () {
     Route::post('account/addproses','admin@addproses');
     Route::post('account/updateproses','admin@updateproses');
 
+});
+
+
+Route::group(['prefix' => 'administrator'], function () {
+    Route::get('/', function () {
+        return view('admin.login');
+    });
+    Route::get('/login', function () {
+        return view('admin.login');
+    });
+    Route::post('/login','WelcomeController@cekLogin');
+    Route::get('/logout','WelcomeController@logout');
+
+    
 });
 
 

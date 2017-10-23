@@ -18,8 +18,10 @@ class CreateGejalaTable extends Migration
             $table->string('kode_gejala');
             $table->string('nama_gejala');
             $table->text('keterangan');
-            $table->string('negatif');
-            $table->string('positif');
+            $table->string('present_negatif');
+            $table->string('present_positif');
+            $table->string('absen_negatif');
+            $table->string('absen_positif');
             $table->timestamps();
         });
     }

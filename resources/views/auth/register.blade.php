@@ -25,6 +25,34 @@
                             </div>
                         </div>
 
+                         <div class="form-group{{ $errors->has('umur') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">Umur</label>
+
+                            <div class="col-md-6">
+                                <input id="umur" type="text" class="form-control" name="umur" value="{{ old('umur') }}" required>
+
+                                @if ($errors->has('umur'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('umur') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('alamat') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">alamat</label>
+
+                            <div class="col-md-6">
+                                <textarea id="alamat"class="form-control" name="alamat" required>{{ old('alamat') }}</textarea>
+
+                                @if ($errors->has('alamat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
