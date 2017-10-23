@@ -54,6 +54,7 @@ class WelcomeController extends Controller
         
                   $take = Admin::where('username',$user)->where('password',$pass)->first();
                   
+                         session(['id'=>$take->id]);
                          session(['username' => $take->username]);
                          session(['kode_administrator' => $take->kode_administrator]);
                          session(['nama_lengkap'=>$take->nama_lengkap]);

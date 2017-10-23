@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
 
 class Admin extends Controller
 {
@@ -156,6 +157,17 @@ class Admin extends Controller
 
      Session::flash('message', 'Successfully delete data');
      return Redirect::to('backend/account');
+   }
+
+   function profile()
+   {
+            $id =   session('id');
+            $menus = $this->menus;
+            $judul = "Manajemen Akun";
+            $data = Adminmodel::find($id);
+
+            //print_r($data); die();
+            return view('admin/profile',compact('menus','data','judul'));
    }
 
 

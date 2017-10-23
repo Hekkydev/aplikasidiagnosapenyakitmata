@@ -24,6 +24,7 @@
                                 <th>No</th>
                                 <th>Kode Gejala</th>
                                 <th>Nama Gejala</th>
+                                <th>Probabilitas</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $g->kode_gejala }}</td>
                                     <td>{{ $g->nama_gejala }}</td>
+                                    <td></td>
                                     <td>
                                         <a href="{{ url('backend/gejala/'.$g->id.'/update')}}" class="btn btn-default"><i class="fa fa-search"></i></a>
                                         <a href="{{ url('backend/gejala/'.$g->id.'/deleted')}}" class="btn btn-default"><i class="fa fa-trash"></i></a>

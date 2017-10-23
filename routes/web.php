@@ -55,6 +55,7 @@ Route::group(['prefix' => 'backend','middleware' => 'checklogin'], function () {
     Route::get('account/{id}/delete', 'admin@delete');
     Route::post('account/addproses','admin@addproses');
     Route::post('account/updateproses','admin@updateproses');
+    Route::get('profile', 'admin@profile');
 
 });
 

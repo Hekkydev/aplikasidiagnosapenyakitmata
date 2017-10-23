@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Gejala;
+use App\Penyakitmodel;
+use App\Admin;
+use App\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -48,8 +52,14 @@ class DashboardController extends Controller
                 'url'=>'backend/account',
                 'icon'=>'fa fa-heartbeat  ',
                 ], 
-            
+
             '7'=>[
+                'menu'=>'Data Pasien',
+                'url'=>'backend/pasien',
+                'icon'=>'fa fa-users ',
+                ],
+            
+            '8'=>[
                 'menu'=>'Manajemen Akun',
                 'url'=>'backend/account',
                 'icon'=>'fa fa-user-md ',
@@ -64,6 +74,20 @@ class DashboardController extends Controller
         $menus = $this->menus;
         $judul = "Welcome";
         $judul_desc = "Selamat datang di administrator sistem";
-        return view('dashboard.page',compact('menus','judul','judul_desc'));
+
+        $gejala = Gejala::all()->count();
+        $penyakit = Penyakitmodel::all()->count();
+        $user = Admin::all()->count();
+        $pasien = User::all()->count();
+        $data = [
+            'gejala'=>$gejala,
+            'penyakit'=>$penyakit,
+            'users'=>$user,
+            'pasien'=>$pasien
+        ];
+
+        //print_r($data); die();
+
+        return view('dashboard.page',compact('menus','judul','judul_desc','data'));
     }
 }
