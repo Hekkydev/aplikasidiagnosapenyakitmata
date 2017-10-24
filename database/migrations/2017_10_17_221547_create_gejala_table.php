@@ -22,6 +22,7 @@ class CreateGejalaTable extends Migration
             $table->string('present_positif');
             $table->string('absen_negatif');
             $table->string('absen_positif');
+            $table->string('probabilitas');
             $table->timestamps();
         });
     }
