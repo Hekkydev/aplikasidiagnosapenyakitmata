@@ -35,7 +35,7 @@
                                     <td>{{ $no++ }}</td>
                                     <td>{{ $g->kode_gejala }}</td>
                                     <td>{{ $g->nama_gejala }}</td>
-                                    <td></td>
+                                    <td>{{ $g->probabilitas}}</td>
                                     <td>
                                         <a href="{{ url('backend/gejala/'.$g->id.'/update')}}" class="btn btn-default"><i class="fa fa-search"></i></a>
                                         <a href="{{ url('backend/gejala/'.$g->id.'/deleted')}}" class="btn btn-default"><i class="fa fa-trash"></i></a>

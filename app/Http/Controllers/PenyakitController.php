@@ -9,59 +9,13 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class PenyakitController extends Controller
 {
     function __construct()
     {
-        $this->menus = [
-            '0'=>[
-                'menu'=>'Dashboard',
-                'url'=>'backend/dashboard',
-                'icon'=>'fa fa-dashboard',
-             ],
-             '1'=>[
-                'menu'=>'Telusuri Penyakit',
-                'url'=>'backend/penyakit/search',
-                'icon'=>'fa fa-search',
-             ],
-             '2'=>[
-                    'menu'=>'Daftar Penyakit',
-                    'url'=>'backend/penyakit',
-                    'icon'=>'fa fa-hospital-o',
-                 ],
-            '3'=>[
-                 'menu'=>'Daftar Gejala',
-                 'url'=>'backend/gejala',
-                 'icon'=>'fa fa-medkit',
-                 ],
-
-            '4'=>[
-            'menu'=>'Daftar Solusi',
-            'url'=>'backend/solusi',
-            'icon'=>'fa fa-stethoscope ',
-            ],
-
-            '5'=>[
-                'menu'=>'Basis Aturan',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-clipboard ',
-                ],
-
-            '6'=>[
-                'menu'=>'Lihat Usulan',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-heartbeat  ',
-                ],
-
-            '7'=>[
-                'menu'=>'Manajemen Akun',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-user-md ',
-                ],
-
-
-        ];
+        $this->menus = $this->menus();
     }
 
     function index()
@@ -83,7 +37,13 @@ class PenyakitController extends Controller
 
     function searchproses(Request $request)
     {
-        print_r($request->post('nama_penyakit'));
+        $Nama_penyakit = isset($request->nama_penyakit) ? $request->nama_penyakit : '';
+
+        $query = DB::table('master_penyakit')->where('nama_penyakit','LIKE', '%' . $Nama_penyakit . '%')->get();
+        $menus = $this->menus;
+        $judul = "Hasil Pencarian Penyakit";
+        $penyakit = isset($query) ? $query : FALSE;
+        return view('master_penyakit.result',compact('menus','judul','penyakit'));
     }
 
     function add()

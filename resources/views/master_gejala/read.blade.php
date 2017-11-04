@@ -38,6 +38,11 @@
                                     <td>:</td>
                                     <td><input type="text" name="absen_positif" placeholder="nilai positif" value="{{ $data->absen_positif}}"> <input type="text" name="absen_negatif" placeholder=" nilai negatif" value="{{ $data->absen_negatif}}"></td>
                                 </tr>
+                                 <tr>
+                                    <td><label for="Absen">Probabilitas</label></td>
+                                    <td>:</td>
+                                    <td><input style="background:#f5f5f5" type="text" placeholder="nilai positif" value="{{ $data->probabilitas}}" readonly></td>
+                                </tr>
                                 <tr>
                                         <td> </td>
                                         <td></td>

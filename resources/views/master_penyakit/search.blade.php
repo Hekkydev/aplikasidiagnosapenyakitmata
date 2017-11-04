@@ -7,6 +7,7 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="post" action="{{ url('backend/penyakit/searchproses') }}">
+                    {{ csrf_field()}}
                         <div class="form-group">
                             <label for="search" class="control-label col-md-2">Cari Data Penyakit</label>
                             <div class="col-md-7">

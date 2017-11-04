@@ -16,6 +16,28 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <style>
+    .wizard-navbar > ul li a span {
+    background-color: #eeeeee;
+    border-radius: 50%;
+    color: #898b8f;
+    display: block;
+    height: 40px;
+    left: 50%;
+    line-height: 40px;
+    margin-left: -20px;
+    margin-top: -50px;
+    position: absolute;
+    text-align: center;
+    transition: all 300ms ease-in-out 0s;
+    -webkit-transition: all 300ms ease-in-out 0s;
+    -o-transition: all 300ms ease-in-out 0s;
+    -moz-transition: all 300ms ease-in-out 0s;
+    width: 40px;
+    z-index: 5;
+    display: none;
+}
+    </style>
 </head>
 <body>
     <div id="app">
@@ -84,23 +106,52 @@
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('bower_components/wizard/jquery.bootstrap.wizard.min.js') }}"></script>
+    <?php //$gejala = []; ?>
     <script>
      $(document).ready(function () {
           // Form Wizard
           if ($.isFunction($.fn.bootstrapWizard))
           {
-               $('#rootwizard').bootstrapWizard({
-                    tabClass: 'wizard-steps',
-                    onTabShow: function ($tab, $navigation, index)
-                    {
-                         $tab.prevAll().addClass('completed');
-                         $tab.nextAll().removeClass('completed');
-                         $tab.removeClass('completed');
-                    }
 
-               });
+              $(".validate-form-wizard").each(function (i, formwizard)
+              {
+                  var $this = $(formwizard);
+                  var $progress = $this.find(".steps-progress div");
 
-               
+                  var $validator = $this.validate({
+                     
+                  });
+
+                  // Validation
+                  var checkValidaion = function (tab, navigation, index)
+                  {
+                      if ($this.hasClass('validate'))
+                      {
+                          var $valid = $this.valid();
+                          if (!$valid) {
+                              $validator.focusInvalid();
+                              return false;
+                          }
+                      }
+
+                      return true;
+                  };
+
+                  $this.bootstrapWizard({
+                      tabClass: 'wizard-steps',
+                      onNext: checkValidaion,
+                      onTabClick: checkValidaion,
+                      onTabShow: function ($tab, $navigation, index)
+                      {
+                          $tab.removeClass('completed');
+                          $tab.prevAll().addClass('completed');
+                          $tab.nextAll().removeClass('completed');
+                      }
+                  });
+              });
+
+
+
           }
      });
      </script>

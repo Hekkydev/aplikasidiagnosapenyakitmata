@@ -23,13 +23,17 @@
     <!-- AdminLTE App -->
     <script src="{{ asset ("/bower_components/admin-lte/dist/js/admin-lte.js") }}" type="text/javascript"></script>
     <script src="{{ asset ("/bower_components/datatables.net/js/jquery.dataTables.js")}}" type="text/javascript"></script>
+    
+    <script src="{{ asset("/bower_components\dualist\dist\js\multiselect.js")}}"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
           Both of these plugins are recommended to enhance the
           user experience -->
     <script>
             jQuery(document).ready(function(){
                 $(".table").dataTable();
+                  $('.multiselect').multiselect();
             });
     </script>
+        
     </body>
 </html>

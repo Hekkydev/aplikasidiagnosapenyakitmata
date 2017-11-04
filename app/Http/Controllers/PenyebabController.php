@@ -2,65 +2,54 @@
 
 namespace App\Http\Controllers;
 
+use App\Penyebab;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class PenyebabController extends Controller
 {
-    
+
     public function __construct()
     {
-        $this->menus = [
-            '0'=>[
-                'menu'=>'Dashboard',
-                'url'=>'backend/dashboard',
-                'icon'=>'fa fa-dashboard',
-             ],
-             '1'=>[
-                'menu'=>'Telusuri Penyakit',
-                'url'=>'backend/penyakit/search',
-                'icon'=>'fa fa-search',
-             ],
-             '2'=>[
-                    'menu'=>'Daftar Penyakit',
-                    'url'=>'backend/penyakit',
-                    'icon'=>'fa fa-hospital-o',
-                 ],
-            '3'=>[
-                 'menu'=>'Daftar Gejala',
-                 'url'=>'backend/gejala',
-                 'icon'=>'fa fa-medkit',
-                 ],
-
-            '4'=>[
-            'menu'=>'Daftar Solusi',
-            'url'=>'backend/solusi',
-            'icon'=>'fa fa-stethoscope ',
-            ], 
-            
-            '5'=>[
-                'menu'=>'Basis Aturan',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-clipboard ',
-                ], 
-
-            '6'=>[
-                'menu'=>'Lihat Usulan',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-heartbeat  ',
-                ], 
-            
-            '7'=>[
-                'menu'=>'Manajemen Akun',
-                'url'=>'backend/account',
-                'icon'=>'fa fa-user-md ',
-                ], 
-            
-            
-        ];
+        $this->menus = $this->menus();
     }
-    
-    public function index($var = null)
+
+    public function index()
     {
-        return view('master_penyebab.page');
+        $judul = 'Daftar Penyebab';
+        $menus = $this->menus;
+        $penyebab = Penyebab::all();
+        return view('master_penyebab.page', compact('menus', 'judul', 'penyebab'));
+    }
+
+    function add()
+    {
+        $judul = 'Daftar Penyabab';
+        $menus = $this->menus;
+        return view('master_penyebab.add',compact('menus','judul'));
+    }
+
+    function add_proses(Request $e)
+    {
+
+    }
+
+    function edit()
+    {
+
+        $judul = 'Daftar Penyabab';
+        $menus = $this->menus;
+        return view('master_penyebab.edit',compact('menus','judul'));
+    }
+
+    function update_proses(Request $e)
+    {
+
+    }
+
+    function  delete($id)
+    {
+
     }
 }
