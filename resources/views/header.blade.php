@@ -11,9 +11,9 @@
         <!-- Bootstrap 3.3.2 -->
         <link href="{{ asset("/bower_components/bootstrap/dist/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css" />
         <!-- Font Awesome Icons -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
-        <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="{{ asset("/bower_components/ionicons/css/ionicons.min.css") }}" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="{{ asset("/bower_components/admin-lte/dist/css/AdminLTE.min.css")}}" rel="stylesheet" type="text/css" />
 
@@ -42,28 +42,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                   
-                        <!-- Notifications Menu -->
-                        <li class="dropdown notifications-menu">
-                            <!-- Menu toggle button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-bell-o"></i>
-                                <span class="label label-warning">10</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
-                                <li>
-                                    <!-- Inner Menu: contains the notifications -->
-                                    <ul class="menu">
-                                        <li><!-- start notification -->
-                                            <a href="#">
-                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                                            </a>
-                                        </li><!-- end notification -->
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">View all</a></li>
-                            </ul>
-                        </li>
+
                        
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
@@ -148,8 +127,8 @@
                     <small> {{ isset($judul_desc) ? $judul_desc : '' }}</small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                    <li class="active">Here</li>
+                    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">{{ isset($judul) ? $judul : '' }}</li>
                 </ol>
             </section>
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php $uri = isset(Request::segments()[1]) ? Request::segments()[1] : ''?>
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -12,10 +13,11 @@
 
     <!-- Styles -->
     <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bower_components/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset("favicon.png") }} " type="image/x-icon">
     <style>
     .wizard-navbar > ul li a span {
     background-color: #eeeeee;
@@ -37,6 +39,61 @@
     z-index: 5;
     display: none;
 }
+
+
+        <?php if($uri == 'login'):?>
+           .navbar-default .navbar-brand {
+            color: #f9ffff !important;
+        }
+    .navbar-default {
+        background-color: #337ab7 !important;
+        border-color: #337ab7 !important;
+    }
+    .navbar-default .navbar-nav>li>a {
+        color: #fff !important;
+    }
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            /*background-color: #e0edfb;*/
+            background-image: url('{{ asset('frontsite/images/slider/slider-img5.jpg') }}') !important;
+            /* Full height */
+            height: 100%;
+
+            /*Center and scale the image nicely*/
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        <?php elseif($uri == 'register'):?>
+           .navbar-default .navbar-brand {
+            color: #f9ffff !important;
+        }
+    .navbar-default {
+        background-color: #337ab7 !important;
+        border-color: #337ab7 !important;
+    }
+    .navbar-default .navbar-nav>li>a {
+        color: #fff !important;
+    }
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            /*background-color: #e0edfb;*/
+            background-image: url('{{ asset('frontsite/images/slider/slider-img4.jpg') }}') !important;
+            /* Full height */
+            height: 100%;
+
+            /*Center and scale the image nicely*/
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        <?php endif;?>
     </style>
 </head>
 <body>

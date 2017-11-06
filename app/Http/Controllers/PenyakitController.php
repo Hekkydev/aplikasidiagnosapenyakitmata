@@ -86,7 +86,7 @@ class PenyakitController extends Controller
             $nerd->save();
 
             // redirect
-            Session::flash('message', 'Successfully created nerd!');
+            Session::flash('message', 'Successfully created data!');
             return Redirect::to('backend/penyakit');
         }
     }

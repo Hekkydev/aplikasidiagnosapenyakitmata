@@ -7,6 +7,8 @@ use App\Penyakitmodel;
 use App\Admin;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\History;
 
 class DashboardController extends Controller
 {   
@@ -33,8 +35,27 @@ class DashboardController extends Controller
             'pasien'=>$pasien
         ];
 
+        $penyakit = DB::select('SELECT COUNT(history_diagnosa.kode_penyakit) AS jumlah_penyakit,history_diagnosa.kode_penyakit,master_penyakit.nama_penyakit FROM history_diagnosa LEFT JOIN master_penyakit ON master_penyakit.kode_penyakit = history_diagnosa.kode_penyakit GROUP BY history_diagnosa.kode_penyakit ');
+        $pasien = User::all();
         //print_r($data); die();
 
-        return view('dashboard.page',compact('menus','judul','judul_desc','data'));
+        return view('dashboard.page',compact('menus','judul','judul_desc','data','penyakit','pasien'));
+    }
+
+    function history()
+    {
+        $history = DB::select('SELECT 
+                    users.name,
+                    history_diagnosa.kode_penyakit,
+                    master_penyakit.nama_penyakit ,
+                    history_diagnosa.nilai
+                    FROM history_diagnosa 
+                    LEFT JOIN master_penyakit 
+                    ON master_penyakit.kode_penyakit = history_diagnosa.kode_penyakit 
+                    LEFT JOIN users 
+                    ON users.id = history_diagnosa.kode_user ');
+        $menus = $this->menus;
+        $judul = 'Laporan Diagnosa Pasien';
+        return view('dashboard.history',compact('history','menus','judul'));
     }
 }

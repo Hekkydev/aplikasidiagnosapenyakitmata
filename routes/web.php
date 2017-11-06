@@ -41,6 +41,12 @@ Route::group(['prefix' => 'backend','middleware' => 'checklogin'], function () {
     Route::post('gejala/updateproses','GejalaController@updateproses');
     // PENYEBAB
     Route::get('penyebab', 'PenyebabController@index');
+    Route::get('penyebab/add','PenyebabController@add');
+    Route::post('penyebab/add_proses','PenyebabController@add_proses');
+    Route::get('penyebab/{id}/edit/','PenyebabController@edit');
+    Route::post('penyebab/update_proses/','PenyebabController@update_proses');
+    Route::get('penyebab/{id}/delete/','PenyebabController@delete');
+
       // SOLUSI
     Route::get('solusi', 'SolusiController@index');
     Route::get('solusi/add', 'SolusiController@add');
@@ -66,10 +72,15 @@ Route::group(['prefix' => 'backend','middleware' => 'checklogin'], function () {
     Route::post('account/updateproses','admin@updateproses');
     Route::get('profile', 'admin@profile');
 
-    
+    // USULAN
+    Route::get('usulan','UsulanController@index');
+
     // PASIEN
     Route::get('pasien','PasienController@index');
-    
+    Route::get('pasien/{id}/info','PasienController@info');
+
+    Route::get('history','DashboardController@history');
+
 
 });
 
@@ -93,9 +104,8 @@ Route::group(['prefix' => 'membership'], function () {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/diagnosa', 'HomeController@diagnosa')->name('diagnosa');
-    Route::get('/hasil-diagnosa', 'HomeController@diagnosa')->name('hasil-diagnosa');
+    Route::get('/hasil-diagnosa', 'HomeController@viewhasil')->name('hasil-diagnosa');
     Route::get('/profil', 'HomeController@profil')->name('profil');
-
-
+    Route::get('/informasi-aplikasi','HomeController@infoapps');
     Route::post('/diagnosaproses','HomeController@prosesdiagnosa');
 });

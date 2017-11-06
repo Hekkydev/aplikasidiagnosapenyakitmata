@@ -42,7 +42,7 @@ class Controller extends BaseController
             'icon'=>'fa fa-stethoscope ',
             ],
             '4.1'=>[
-                'menu'=>'Daftar Penyabab',
+                'menu'=>'Daftar Penyebab',
                 'url'=>'backend/penyebab',
                 'icon'=>'fa  fa-warning ',
             ],
@@ -55,7 +55,7 @@ class Controller extends BaseController
 
             '6'=>[
                 'menu'=>'Lihat Usulan',
-                'url'=>'backend/account',
+                'url'=>'backend/usulan',
                 'icon'=>'fa fa-heartbeat  ',
                 ], 
 

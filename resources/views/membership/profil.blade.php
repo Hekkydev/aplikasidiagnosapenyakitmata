@@ -5,6 +5,8 @@
 
     <div class="row">
         <div class="col-md-12">
+            <a href="{{ URL::to('membership/') }}" class="btn btn-default"><i class="fa fa-chevron-left"></i> Kembali</a>
+            <br><br>
             <div class="panel panel-default">
                 <div class="panel-heading">Profil</div>
 
@@ -23,9 +25,7 @@
                         <label for="">Terdaftar</label>
                         <input type="text" name="" value="{{ $data->created_at }}" class="form-control" readonly>
                       </div>
-                      <div class="form-group">
-                      <a href="{{url('/membership')}}" class="btn btn-default btn-flat">Back</a>
-                      </div>
+
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
@@ -33,8 +33,8 @@
                         <input type="text" name="" value="{{ $data->umur }} tahun" class="form-control" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="">Email</label>
-                       <textarea rows="" cols="" class="form-control" readonly>{{ $data->alamat }}</textarea>
+                        <label for="">Alamat</label>
+                       <textarea rows="5" class="form-control" readonly>{{ $data->alamat }}</textarea>
                       </div>
                       
                     </div>
