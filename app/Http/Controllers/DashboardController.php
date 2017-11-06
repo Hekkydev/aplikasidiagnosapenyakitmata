@@ -46,6 +46,7 @@ class DashboardController extends Controller
     {
         $history = DB::select('SELECT 
                     users.name,
+                    history_diagnosa.id,
                     history_diagnosa.kode_penyakit,
                     master_penyakit.nama_penyakit ,
                     history_diagnosa.nilai
@@ -57,5 +58,33 @@ class DashboardController extends Controller
         $menus = $this->menus;
         $judul = 'Laporan Diagnosa Pasien';
         return view('dashboard.history',compact('history','menus','judul'));
+    }
+
+    function history_detail($id)
+    {
+        $history = DB::select('SELECT 
+                    users.name,
+                    history_diagnosa.id,
+                    history_diagnosa.kode_penyakit,
+                    master_penyakit.nama_penyakit ,
+                    history_diagnosa.nilai,
+                    history_diagnosa.created_at,
+                    master_penyebab.kode_penyebab,
+                    master_penyebab.nama_penyebab,
+                    master_solusi.kode_solusi,
+                    master_solusi.nama_solusi,
+                    history_diagnosa.gejala           
+                    FROM history_diagnosa 
+                    LEFT JOIN master_penyakit 
+                    ON master_penyakit.kode_penyakit = history_diagnosa.kode_penyakit 
+                    LEFT JOIN master_penyebab 
+                    ON master_penyebab.kode_penyebab = history_diagnosa.kode_penyebab
+                    LEFT JOIN master_solusi
+                    ON master_solusi.kode_solusi = history_diagnosa.kode_solusi
+                    LEFT JOIN users 
+                    ON users.id = history_diagnosa.kode_user WHERE history_diagnosa.id = "'.$id.'"');
+        $menus = $this->menus;
+        $judul = 'Laporan Diagnosa Pasien';
+        return view('dashboard.history_detail',compact('history','menus','judul'));
     }
 }

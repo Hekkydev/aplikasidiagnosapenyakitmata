@@ -80,6 +80,7 @@ Route::group(['prefix' => 'backend','middleware' => 'checklogin'], function () {
     Route::get('pasien/{id}/info','PasienController@info');
 
     Route::get('history','DashboardController@history');
+    Route::get('history/{id}/detail','DashboardController@history_detail');
 
 
 });

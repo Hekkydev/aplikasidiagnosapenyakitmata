@@ -1,11 +1,14 @@
-@extends('layouts.app')
+@extends('index')
 
 @section('content')
-    <div class="container">
-
+    <style>
+        thead>tr>th{
+            height: 60px;
+        }
+    </style>
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ URL::to('membership/') }}" class="btn btn-default"><i class="fa fa-chevron-left"></i> Kembali</a>
+                <a href="{{ URL::to('backend/history') }}" class="btn btn-default"><i class="fa fa-chevron-left"></i> Kembali</a>
                 <br><br>
                 @if(count($history) > 0)
                     @foreach( $history as $h)
@@ -13,7 +16,7 @@
                             <div class="panel-heading">Tanggal Diagnosa : {{ $h->created_at }}</div>
 
                             <div class="panel-body">
-                                <table class="table">
+                                <table width="100%">
                                     <thead>
                                     <tr>
                                         <th>Penyakit : {{ $h->nama_penyakit }}</th>
@@ -41,19 +44,9 @@
                             </div>
                         </div>
                     @endforeach
-                @else
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Informasi Diagnosa</h3>
-                        </div>
-                        <div class="panel-body">
-                            Anda belum melakukan diagnosa !
-                        </div>
-                    </div>
                 @endif
 
 
             </div>
         </div>
-    </div>
 @endsection

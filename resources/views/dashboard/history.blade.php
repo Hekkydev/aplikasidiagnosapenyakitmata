@@ -12,6 +12,7 @@
                                 <th> Nama Pasien</th>
                                 <th> Hasil Diagnosa</th>
                                 <th>Nilai</th>
+                                <th>Persentase</th>
                                 <th>Detail</th>
 
                             </tr>
@@ -22,9 +23,10 @@
                                     <td><?php echo ++$no?></td>
                                     <td>{{$u->name}}</td>
                                     <td>{{ $u->nama_penyakit }}</td>
-                                    <td>{{ number_format($u->nilai,2).'%' }}</td>
+                                    <td>{{ $u->nilai }}</td>
+                                    <td>{{ number_format($u->nilai * 100 ,2).'%' }}</td>
                                     <td>
-                                        <a href="" class="btn btn-default"><i class="fa fa-search"></i></a>
+                                        <a href="{{ url('backend/history/'.$u->id.'/detail') }}" class="btn btn-default"><i class="fa fa-search"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach

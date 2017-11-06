@@ -20,6 +20,11 @@
         <link href="{{ asset("/bower_components/admin-lte/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
         <link rel="shortcut icon" href="{{ asset("favicon.png") }} " type="image/x-icon">
         <link rel="stylesheet" type="" href="{{ asset("/bower_components/datatables.net-bs/css/dataTables.bootstrap.css")}}">
+        <style>
+            .table{
+                font-size: 11px;
+            }
+        </style>
     </head>
     <body class="skin-blue">
     <div class="wrapper">
@@ -41,8 +46,19 @@
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                  
 
+                        <li class="dropdown tasks-menu">
+                            <a href="{{ url('/') }}" target="_blank" >
+                                <i class="fa fa-desktop"></i> Halaman Awal
+                            </a>
+
+                        </li>
+                        <li class="dropdown tasks-menu">
+                            <a href="{{ url('membership') }}" target="_blank">
+                                <i class="fa fa-stethoscope"></i> Halaman Pasien
+                            </a>
+
+                        </li>
                        
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
